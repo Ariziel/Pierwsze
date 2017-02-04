@@ -1,0 +1,110 @@
+﻿<Controls:MetroWindow x:Class="SilverBot.Windows.ArmyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"           
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilverBot.Windows"
+        mc:Ignorable="d"
+        Loaded="ArmyWindow_OnLoaded"
+        Title="ArmyWindow" Height="600" Width="800">
+    <Grid>
+        <DataGrid x:Name="ArmyDataGrid" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=id}" ClipboardContentBinding="{x:Null}" Header="Village ID"/>
+                <DataGridTextColumn Binding="{Binding Path=name}" ClipboardContentBinding="{x:Null}" Header="Name"/>
+                <DataGridTextColumn Binding="{Binding Path=spear}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Pikinier.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=sword}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Miecznik.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=axe}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Topornik.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=archer}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Lucznik.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=spy}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Zwiadowca.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=light}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/LK.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=marcher}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/LnK.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=heavy}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/CK.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=ram}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Taran.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=catapult}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Katapulta.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=knight}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Rycerz.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=snob}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Szlachcic.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=militia}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Chlop.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Controls:MetroWindow>

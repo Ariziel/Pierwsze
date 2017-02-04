@@ -1,0 +1,533 @@
+﻿<controls:MetroWindow x:Class="SilverBot.Windows.BuildQueueNew"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilverBot.Windows"
+        Loaded="BuildQueueNew_OnLoaded"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="BuildQueueNew" Height="600" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/SilverBot;component/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <ListView x:Name="ListViewBuildQueueFlyout" Margin="280,10,335,10">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Delete" Click="MenuItem_OnClick"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+
+        <ScrollViewer Margin="0,0,525,0">
+            <StackPanel>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Ratusz15.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Main</TextBlock>
+                        <TextBlock Foreground="White" x:Name="MainLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarMain" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="MainButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="MainButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Koszary20.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Barracks</TextBlock>
+                        <TextBlock Foreground="White" x:Name="BarracksLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarBarracks" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="BarracksButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="BarracksButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Stajnia10.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Stable</TextBlock>
+                        <TextBlock Foreground="White" x:Name="StableLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarStable" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="StableButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="StableButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Warsztat10.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Garage</TextBlock>
+                        <TextBlock Foreground="White" x:Name="GarageLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarGarage" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="Garage" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="Garage_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Kuźnia15.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Smith</TextBlock>
+                        <TextBlock Foreground="White" x:Name="SmithLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarSmith" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="SmithButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="SmithButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Plac1.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Place</TextBlock>
+                        <TextBlock Foreground="White" x:Name="PlaceLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarPlace" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="PlaceButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="PlaceButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Rynek20.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Market</TextBlock>
+                        <TextBlock Foreground="White" x:Name="MarketLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarMarket" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="MarketButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="MarketButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Tartak20.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Wood</TextBlock>
+                        <TextBlock Foreground="White" x:Name="WoodLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarWood" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="WoodButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="WoodButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Glina20.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Stone</TextBlock>
+                        <TextBlock Foreground="White" x:Name="StoneLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarStone" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="StoneButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="StoneButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Huta20.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Iron</TextBlock>
+                        <TextBlock Foreground="White" x:Name="IronLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarIron" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="IronButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="IronButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Zagroda20.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Farm</TextBlock>
+                        <TextBlock Foreground="White" x:Name="FarmLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarFarm" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="FarmButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="FarmButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Spichlerz20.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Storage</TextBlock>
+                        <TextBlock Foreground="White" x:Name="StorageLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarStorage" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="StorageButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="StorageButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Schowek1.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Hide</TextBlock>
+                        <TextBlock Foreground="White" x:Name="HideLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarHide" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="HideButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="HideButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Mur15.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Wall</TextBlock>
+                        <TextBlock Foreground="White" x:Name="WallLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarWall" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="WallButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="WallButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Pałac.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Snob</TextBlock>
+                        <TextBlock Foreground="White" x:Name="SnobLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarSnob" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="SnobButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="SnobButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Green" BorderThickness="1" HorizontalAlignment="Left" Height="54" Margin="10,10,0,0" VerticalAlignment="Top" Width="240">
+                    <Grid>
+                        <Separator Background="Green" RenderTransformOrigin="0.5,0.5" Margin="49,24,135,24" >
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Image Source="/Images/Piedestał.png" Stretch="Uniform" Margin="0,0,163,0" Height="50" VerticalAlignment="Top"></Image>
+                        <TextBlock FontWeight="Bold" Foreground="#87909c" Margin="80,0,29,0">Statue</TextBlock>
+                        <TextBlock Foreground="White" x:Name="StatueLVL" HorizontalAlignment="Left" FontSize="10" Margin="80,15,0,0" TextWrapping="Wrap" Text="Level: 1" VerticalAlignment="Top"/>
+                        <ProgressBar x:Name="ProgressBarStatue" Visibility="Hidden" HorizontalAlignment="Left" Margin="80,33,0,0" VerticalAlignment="Top" Value="0" Width="155" Height="17"/>
+                        <Button x:Name="StatueButton" IsEnabled="False" BorderThickness="0" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Top" Width="34" Height="33" Click="StatueButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="0 0 0 0"
+                   VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+        <ComboBox x:Name="YourVillage" HorizontalAlignment="Left" Margin="472,10,0,0" VerticalAlignment="Top" Width="143" controls:TextBoxHelper.Watermark="Select village..." DropDownClosed="YourVillage_DropDownClosed"/>
+        <Button x:Name="Savequeuebutton" Content="Save queue" HorizontalAlignment="Left" Margin="644,534,0,0" VerticalAlignment="Top" Width="138" Click="Savequeuebutton_Click"/>
+
+    </Grid>
+</controls:MetroWindow>
+

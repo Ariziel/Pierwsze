@@ -1,0 +1,23 @@
+﻿<Controls:MetroWindow x:Class="SilverBot.Windows.World"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilverBot.Windows"
+        mc:Ignorable="d"
+                      Loaded="World_OnLoaded"
+        Title="World" Height="600" Width="800">
+    <Grid>
+        <DataGrid x:Name="WorldDataGrid" EnableColumnVirtualization="True" EnableRowVirtualization="True" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=id}" ClipboardContentBinding="{x:Null}" Header="ID"/>
+                <DataGridTextColumn Binding="{Binding Path=name}" ClipboardContentBinding="{x:Null}" Header="Name"/>
+                <DataGridTextColumn Binding="{Binding Path=x}" ClipboardContentBinding="{x:Null}" Header="X"/>
+                <DataGridTextColumn Binding="{Binding Path=y}" ClipboardContentBinding="{x:Null}" Header="Y"/>
+                <DataGridTextColumn Binding="{Binding Path=playerid}" ClipboardContentBinding="{x:Null}" Header="Player ID"/>
+                <DataGridTextColumn Binding="{Binding Path=points}" ClipboardContentBinding="{x:Null}" Header="Points"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Controls:MetroWindow>

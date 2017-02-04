@@ -1,0 +1,153 @@
+﻿<Controls:MetroWindow x:Class="SilverBot.Windows.BuildingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilverBot.Windows"
+        Loaded="BuildingsWindow_OnLoaded"
+        mc:Ignorable="d"
+        Title="BuildingsWindow" Height="600" Width="800">
+    <Grid>
+        <DataGrid x:Name="BuildingsDatagrid" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=id}" ClipboardContentBinding="{x:Null}" Header="Village ID"/>
+                <DataGridTextColumn Binding="{Binding Path=name}" ClipboardContentBinding="{x:Null}" Header="Name"/>
+                <DataGridTextColumn Binding="{Binding Path=main}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Ratusz_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=barracks}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Koszary_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=stable}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Stajnia_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=workshop}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Warsztat_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=smithy}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Kuznia_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=rally_point}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Plac_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=market}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Rynek_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=timber_camp}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Tartak_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=clay_pit}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Cegielnia_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=iron_mine}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Huta_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=farm}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Zagroda_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=warehouse}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Spichlerz_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=hiding_place}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Schowek_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=wall}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Mur_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=academy}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Palac_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=statue}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Piedestal_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=church}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Kosciol_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=church_f}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Kosciol_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=watchtower}" ClipboardContentBinding="{x:Null}" Header="Pop">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/Images/Watchtower_miniaturka.png" Stretch="Fill" Height="18" Width="18"/>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Controls:MetroWindow>

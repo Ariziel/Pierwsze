@@ -1,0 +1,181 @@
+﻿<Controls:MetroWindow x:Class="SilverBot.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      Title="MainWindow"
+                      Height="600"
+                      Closed="MainWindow_OnClosed"
+                      Closing="MainWindow_OnClosing"
+                      Loaded="MainWindow_OnLoaded"
+                      Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/SilverBot;component/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid>
+        <Menu IsEnabled="True" FlowDirection="LeftToRight" Background="#2d2d30" x:Name="MainMenu" Height="30" VerticalAlignment="Top">
+            <MenuItem Foreground="White" Background="#2d2d30" Header="Home" Height="30">
+                <MenuItem Header="Overview">
+                    <MenuItem.Icon>
+                        <Rectangle Height="22">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource appbar_home}" Stretch="Fill" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="QuickMenuItem" Foreground="White" Header="Quick" Click="QuickMenuItem_OnClick">
+                        <MenuItem.Icon>
+                            <Rectangle Height="22">
+                                <Rectangle.Fill>
+                                    <VisualBrush Visual="{StaticResource appbar_lightning}" Stretch="Fill" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="BuildingsMenuItem" Foreground="White" Header="Buildings" Click="BuildingsMenuItem_OnClick">
+                        <MenuItem.Icon>
+                            <Rectangle Height="22">
+                                <Rectangle.Fill>
+                                    <VisualBrush Visual="{StaticResource appbar_city}" Stretch="Fill" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="ArmyMenuItem" Foreground="White" Header="Army" Click="ArmyMenuItem_OnClick">
+                        <MenuItem.Icon>
+                            <Rectangle Height="22">
+                                <Rectangle.Fill>
+                                    <VisualBrush Visual="{StaticResource appbar_group}" Stretch="Fill" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Build">
+                    <MenuItem.Icon>
+                        <Rectangle Height="22">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource appbar_tools}" Stretch="Fill" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="BuildQueueMenuItem" Foreground="White" Header="Create build queue" Click="BuildQueueMenuItem_OnClick">
+                        <MenuItem.Icon>
+                            <Rectangle Height="22">
+                                <Rectangle.Fill>
+                                    <VisualBrush Visual="{StaticResource appbar_quill}" Stretch="Fill" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Foreground="White" Background="#2d2d30" Header="World" Height="30">
+                <MenuItem x:Name="WorldItem" Foreground="White" Header="All world" Click="WorldItem_OnClick">
+                    <MenuItem.Icon>
+                        <Rectangle Height="22">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource appbar_globe}" Stretch="Fill" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Foreground="White" IsEnabled="True" Background="#2d2d30" Header="Attack" Height="30">
+                <MenuItem x:Name="SendNowItem" Foreground="White" Header="Send attack" Click="SendNowItem_OnClick">
+                    <MenuItem.Icon>
+                        <Rectangle Height="22">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource appbar_chevron_right}" Stretch="Fill" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="AttackListItem" Foreground="White" Header="Attack list" Click="AttackListItem_OnClick">
+                    <MenuItem.Icon>
+                        <Rectangle Height="22">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource appbar_book_list}" Stretch="Fill" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Foreground="White" Background="#2d2d30" Header="Farming" Height="30">
+                <MenuItem x:Name="FarmingItem" Foreground="White" Header="Generate new template" Click="FarmingItem_OnClick">
+                    <MenuItem.Icon>
+                        <Rectangle Height="22">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource appbar_new}" Stretch="Fill" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="FarmingTemplateItem" Foreground="White" Header="Set template for village" Click="FarmingTemplateItem_OnClick">
+                    <MenuItem.Icon>
+                        <Rectangle Height="22">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource appbar_save}" Stretch="Fill" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Foreground="White" Background="#2d2d30" Header="Recruit" Height="30">
+                <MenuItem x:Name="RecruitItem" Foreground="White" Header="Recruit queue" Click="RecruitItem_OnClick">
+                    <MenuItem.Icon>
+                        <Rectangle Height="22">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource appbar_user_add}" Stretch="Fill" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <WebBrowser x:Name="Browser" Margin="0,30" Source="http://plemiona.pl" LoadCompleted="Browser_LoadCompleted"/>
+        <StatusBar Background="#27ae60" Height="30" VerticalAlignment="Bottom">
+            <Controls:TransitioningContentControl x:Name="StatusBarInfo" Transition="Down">Last sync: never</Controls:TransitioningContentControl>
+        </StatusBar>
+
+    </Grid>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="SyncButton" Click="SyncButton_OnClick">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="UniformToFill" Visual="{StaticResource appbar_refresh}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Sync" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="SettingsButton" Click="SettingsButton_OnClick">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="UniformToFill" Visual="{StaticResource appbar_settings}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Settings" />
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+</Controls:MetroWindow>
+

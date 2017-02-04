@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F56EDA9-CF7F-4C49-A67B-3FCD434D4902}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SilverBot</RootNamespace>
+    <AssemblyName>SilverBot</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AttackDetector\FindAttackRegex.cs" />
+    <Compile Include="AttackDetector\PlaceRequest.cs" />
+    <Compile Include="AttackDetector\Structure.cs" />
+    <Compile Include="Attack\FindServerUTC.cs" />
+    <Compile Include="Attack\RegexFindCHandAction.cs" />
+    <Compile Include="Attack\RoadTime.cs" />
+    <Compile Include="Attack\SendAttack.cs" />
+    <Compile Include="Attack\Structure.cs" />
+    <Compile Include="BuildQueue\BuildRequest.cs" />
+    <Compile Include="BuildQueue\Core.cs" />
+    <Compile Include="BuildQueue\CoreStorage.cs" />
+    <Compile Include="BuildQueue\TimeFinder.cs" />
+    <Compile Include="Cookies\Cookie.cs" />
+    <Compile Include="Farming\FarmingTemplateStructure.cs" />
+    <Compile Include="Farming\VillagesTemplateStucture.cs" />
+    <Compile Include="Market\Core.cs" />
+    <Compile Include="Market\GetData.cs" />
+    <Compile Include="Market\RegexAndJson.cs" />
+    <Compile Include="Market\RequestSell.cs" />
+    <Compile Include="PremiumFarming\ChangeSettings.cs" />
+    <Compile Include="PremiumFarming\EnterToLootAssistant.cs" />
+    <Compile Include="PremiumFarming\GetTargets.cs" />
+    <Compile Include="PremiumFarming\GetTemplates.cs" />
+    <Compile Include="PremiumFarming\SendAttack.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Recruit\Core.cs" />
+    <Compile Include="Recruit\Request.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="StaticVariables.cs" />
+    <Compile Include="Structure\User\Market\MarketStructure.cs" />
+    <Compile Include="Structure\User\Recruit\RecruitStructure.cs" />
+    <Compile Include="TimePingEtc\GetPing.cs" />
+    <Compile Include="UserVillages\Army\ArmyRequest.cs" />
+    <Compile Include="Structure\User\Buildqueue\BuildStructure.cs" />
+    <Compile Include="UserVillages\Villages\DownloadSpecifyVillage.cs" />
+    <Compile Include="UserVillages\Villages\DownloadVillage.cs" />
+    <Compile Include="UserVillages\Army\FindArmy.cs" />
+    <Compile Include="UserVillages\Buildqueue\FindBuildqueue.cs" />
+    <Compile Include="UserVillages\Villages\FindVillages.cs" />
+    <Compile Include="UserVillages\JsonFinder.cs" />
+    <Compile Include="UserVillages\Villages\VillageParser.cs" />
+    <Compile Include="Structure\User\VillageStructure.cs" />
+    <Compile Include="Windows\ArmyWindow.xaml.cs">
+      <DependentUpon>ArmyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AttackListWindow.xaml.cs">
+      <DependentUpon>AttackListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BluesScreen.xaml.cs">
+      <DependentUpon>BluesScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BuildingsWindow.xaml.cs">
+      <DependentUpon>BuildingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Buildqueue.xaml.cs">
+      <DependentUpon>Buildqueue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BuildQueueNew.xaml.cs">
+      <DependentUpon>BuildQueueNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Farming.xaml.cs">
+      <DependentUpon>Farming.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FarmingTemplate.xaml.cs">
+      <DependentUpon>FarmingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Recruit.xaml.cs">
+      <DependentUpon>Recruit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SendNow.xaml.cs">
+      <DependentUpon>SendNow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\World.xaml.cs">
+      <DependentUpon>World.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="World\Map\DownloadMap.cs" />
+    <Compile Include="World\Settings\DownloadWorldSettings.cs" />
+    <Compile Include="World\Server\ServerSelector.cs" />
+    <Compile Include="Structure\World\WorldBuildStructure.cs" />
+    <Compile Include="Structure\World\WorldStructure.cs" />
+    <Compile Include="World\Map\WorldParser.cs" />
+    <Compile Include="Structure\World\WorldVillagesStructure.cs" />
+    <Compile Include="Structure\World\WorldUnitStructure.cs" />
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\ArmyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AttackListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BluesScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BuildingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Buildqueue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BuildQueueNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Farming.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FarmingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HomeBuildings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HomeBuildings.xaml.cs">
+      <DependentUpon>HomeBuildings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Windows\Recruit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SendNow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\World.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <AppDesigner Include="Properties\" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="Resources\Entypo.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entypo-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Glina.png" />
+    <Resource Include="Images\Zelazo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Cegielnia_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Chlop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\CK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Huta_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Katapulta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Kosciol_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Koszary_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Kuznia_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\LK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\LnK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Lucznik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Miecznik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Mur_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Palac_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Piedestal_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Pikinier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Plac_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Ratusz_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Rycerz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Rynek_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Schowek_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Spichlerz_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Stajnia_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Szlachcic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Taran.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Tartak_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Topornik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Warsztat_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Zagroda_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Zwiadowca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Drewno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cegielnia_miniaturka.png" />
+    <Resource Include="Images\Chlop.png" />
+    <Resource Include="Images\CK.png" />
+    <Resource Include="Images\Huta_miniaturka.png" />
+    <Resource Include="Images\Katapulta.png" />
+    <Resource Include="Images\Kosciol_miniaturka.png" />
+    <Resource Include="Images\Koszary_miniaturka.png" />
+    <Resource Include="Images\Kuznia_miniaturka.png" />
+    <Resource Include="Images\LK.png" />
+    <Resource Include="Images\LnK.png" />
+    <Resource Include="Images\Lucznik.png" />
+    <Resource Include="Images\Miecznik.png" />
+    <Resource Include="Images\Mur_miniaturka.png" />
+    <Resource Include="Images\Palac_miniaturka.png" />
+    <Resource Include="Images\Piedestal_miniaturka.png" />
+    <Resource Include="Images\Pikinier.png" />
+    <Resource Include="Images\Plac_miniaturka.png" />
+    <Resource Include="Images\Ratusz_miniaturka.png" />
+    <Resource Include="Images\Rycerz.png" />
+    <Resource Include="Images\Rynek_miniaturka.png" />
+    <Resource Include="Images\Schowek_miniaturka.png" />
+    <Resource Include="Images\Spichlerz_miniaturka.png" />
+    <Resource Include="Images\Stajnia_miniaturka.png" />
+    <Resource Include="Images\Szlachcic.png" />
+    <Resource Include="Images\Taran.png" />
+    <Resource Include="Images\Tartak_miniaturka.png" />
+    <Resource Include="Images\Topornik.png" />
+    <Resource Include="Images\Warsztat_miniaturka.png" />
+    <Resource Include="Images\Zagroda_miniaturka.png" />
+    <Resource Include="Images\Zwiadowca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Ludz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Watchtower_miniaturka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\buildqueue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Blue-Screen-of-Death-1920x1080.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Koszary20.png" />
+    <Resource Include="Images\Ratusz15.png" />
+    <Resource Include="Images\Stajnia10.png" />
+    <Resource Include="Images\Warsztat10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Glina20.png" />
+    <Resource Include="Images\Huta20.png" />
+    <Resource Include="Images\Kościół3.png" />
+    <Resource Include="Images\Kuźnia15.png" />
+    <Resource Include="Images\Mur15.png" />
+    <Resource Include="Images\Pałac.png" />
+    <Resource Include="Images\Piedestał.png" />
+    <Resource Include="Images\Pierwszy_kościół.png" />
+    <Resource Include="Images\Plac1.png" />
+    <Resource Include="Images\Rynek20.png" />
+    <Resource Include="Images\Schowek1.png" />
+    <Resource Include="Images\Spichlerz20.png" />
+    <Resource Include="Images\Tartak20.png" />
+    <Resource Include="Images\Watchtower_3.png" />
+    <Resource Include="Images\Zagroda20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

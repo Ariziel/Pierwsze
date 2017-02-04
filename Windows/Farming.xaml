@@ -1,0 +1,57 @@
+﻿<Controls:MetroWindow x:Class="SilverBot.Windows.Farming"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilverBot.Windows"
+        Loaded="Farming_OnLoaded"
+        ResizeMode="CanMinimize"
+        mc:Ignorable="d"
+        Title="Farming" Height="600" Width="403">
+    <Grid>
+        <Separator HorizontalAlignment="Left" BorderBrush="Green" BorderThickness="1" Height="24" Margin="5,18,0,0" VerticalAlignment="Top" Width="382"/>
+        <Separator HorizontalAlignment="Left" BorderBrush="Green" BorderThickness="1" Height="24" Margin="5,388,0,0" VerticalAlignment="Top" Width="382"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="19" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Options" VerticalAlignment="Top" Width="228" Margin="159,4,0,0" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="19" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Army" VerticalAlignment="Top" Width="228" Margin="173,188,0,0" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="19" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Finally" VerticalAlignment="Top" Width="228" Margin="171,374,0,0" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Radius" VerticalAlignment="Top" Width="94" Margin="15,37,0,0"/>
+        <Controls:NumericUpDown x:Name="RadiusUpDown" Margin="15,58,0,485" HasDecimals="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Maximum="100" Minimum="0" Value="1" HorizontalAlignment="Left" Width="133"></Controls:NumericUpDown>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Barbarian" VerticalAlignment="Top" Width="94" Margin="15,94,0,0"/>
+        <CheckBox x:Name="OnlyBarbCheckBox" Content="Only barbarian" HorizontalAlignment="Left" Margin="15,115,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Points" VerticalAlignment="Top" Width="94" Margin="15,138,0,0"/>
+        <Controls:RangeSlider x:Name="PointsRange" Margin="15,159,0,386" SmallChange="1" MinRangeWidth="1" MinRange="1" Minimum="1" Maximum="12355" Value="200" UpperValue="12355" AutoToolTipPlacement="TopLeft" HorizontalAlignment="Left" Width="372"/>
+        <Separator HorizontalAlignment="Left" BorderBrush="Green" BorderThickness="1" Height="24" Margin="5,202,0,0" VerticalAlignment="Top" Width="382"/>
+        <Image Source="/Images/Pikinier.png" Margin="10,232,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="SpearCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="38,227,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71" TextChanged="SpearCountTextBox_TextChanged"/>
+        <Image Source="/Images/Miecznik.png" Margin="10,267,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="SwordCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="38,262,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Image Source="/Images/Topornik.png" Margin="10,302,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="AxeCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="38,297,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Image Source="/Images/Lucznik.png" Margin="10,337,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="ArcherCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="38,332,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Image Source="/Images/Zwiadowca.png" Margin="149,233,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="SpyCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="177,227,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Image Source="/Images/LK.png" Margin="149,268,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="LightCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="177,262,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Image Source="/Images/LnK.png" Margin="149,303,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="MarcherCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="177,297,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Image Source="/Images/CK.png" Margin="149,338,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="HeavyCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="177,332,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Image Source="/Images/Taran.png" Margin="288,233,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="RamCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="316,227,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Image Source="/Images/Katapulta.png" Margin="288,268,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="CatapultCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="316,262,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Image Source="/Images/Rycerz.png" Margin="288,303,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="KnightCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="316,297,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Image Source="/Images/Szlachcic.png" Margin="288,338,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"></Image>
+        <TextBox x:Name="SnobCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="316,332,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71"/>
+        <Button x:Name="SaveTemplate" Click="SaveTemplate_OnClick" Content="Save template" FontSize="12" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top" Width="175" Height="53"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Name" VerticalAlignment="Top" Width="94" Margin="10,417,0,0"/>
+        <TextBox x:Name="TemplateName" HorizontalAlignment="Left" Height="23" Margin="10,438,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" Controls:TextBoxHelper.Watermark="Template name..."/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Remove" VerticalAlignment="Top" Width="94" Margin="212,417,0,0"/>
+        <ComboBox x:Name="TemplatesListComboBox" HorizontalAlignment="Left" Margin="212,438,0,0" VerticalAlignment="Top" Width="173" SelectionChanged="comboBox_SelectionChanged" Controls:TextBoxHelper.Watermark="Template to delete..."/>
+        <Button x:Name="RemoveTempButton" Click="RemoveTempButton_OnClick" Content="Remove selected" FontSize="12" HorizontalAlignment="Left" Margin="212,469,0,0" VerticalAlignment="Top" Width="173" Height="53"/>
+
+    </Grid>
+</Controls:MetroWindow>

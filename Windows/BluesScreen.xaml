@@ -1,0 +1,17 @@
+﻿<Controls:MetroWindow x:Class="SilverBot.Windows.BluesScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilverBot.Windows"
+        Closed="BluesScreen_OnClosed"
+        mc:Ignorable="d"
+        WindowStyle="None" ResizeMode="NoResize"  
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        ShowTitleBar="False" IgnoreTaskbarOnMaximize="True"
+        Title="BluesScreen" Height="720" Width="1280" >
+    <Grid>
+        <Image Stretch="Fill" Source="/Images/Blue-Screen-of-Death-1920x1080.jpg"></Image>
+    </Grid>
+</Controls:MetroWindow>

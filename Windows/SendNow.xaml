@@ -1,0 +1,106 @@
+﻿<Controls:MetroWindow x:Class="SilverBot.Windows.SendNow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilverBot.Windows"
+        xmlns:world="clr-namespace:SilverBot.World"
+        mc:Ignorable="d"
+        Loaded="SendNow_OnLoaded"
+        ResizeMode="CanMinimize"
+        Title="SendNow" Height="581" Width="541">
+    <Grid>
+        <TextBox x:Name="Targets" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="124" Controls:TextBoxHelper.Watermark="Target name..." TextChanged="Targets_TextChanged">
+        </TextBox>
+
+        <!--<ListBox x:Name="TargetList" BorderBrush="Green" BorderThickness="1" Margin="8,41,0,8" HorizontalAlignment="Left" Width="274"></ListBox>-->
+        <GroupBox x:Name="groupBox" Header="Infantry" HorizontalAlignment="Left" Margin="287,10,0,0" VerticalAlignment="Top" Width="111" Height="174">
+            <Grid>
+                <Image Source="/Images/Pikinier.png" Margin="0,6,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="SpearCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+                <Image Source="/Images/Miecznik.png" Margin="0,41,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="SwordCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+                <Image Source="/Images/Topornik.png" Margin="0,76,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="AxeCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+                <Image Source="/Images/Lucznik.png" Margin="0,111,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="ArcherCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+            </Grid>
+
+        </GroupBox>
+        <GroupBox x:Name="groupBox2" Header="Cavalry" HorizontalAlignment="Left" Margin="287,189,0,0" VerticalAlignment="Top" Width="111" Height="174">
+            <Grid>
+                <Image Source="/Images/Zwiadowca.png" Margin="0,6,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="SpyCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+                <Image Source="/Images/LK.png" Margin="0,41,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="LightCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+                <Image Source="/Images/LnK.png" Margin="0,76,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="MarcherCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+                <Image Source="/Images/CK.png" Margin="0,111,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="HeavyCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+            </Grid>
+
+        </GroupBox>
+        <GroupBox x:Name="groupBox3" Header="Others" HorizontalAlignment="Left" Margin="287,368,0,0" VerticalAlignment="Top" Width="111" Height="174">
+            <Grid>
+                <Image Source="/Images/Taran.png" Margin="0,6,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="RamCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+                <Image Source="/Images/Katapulta.png" Margin="0,41,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="CatapultCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+                <Image Source="/Images/Rycerz.png" Margin="0,76,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="KnightCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+                <Image Source="/Images/Szlachcic.png" Margin="0,111,81,0" Height="18" VerticalAlignment="Top"></Image>
+                <TextBox x:Name="SnobCountTextBox" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" Margin="28,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+            </Grid>
+
+        </GroupBox>
+        <GroupBox Header="Settings" Margin="403,10,5,64">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Attack type" VerticalAlignment="Top" Margin="0,52,0,0"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,119,0,0" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Attack count" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="From" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,171,0,0" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Exploit" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,215,0,0" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Catapult target" VerticalAlignment="Top"/>
+                <RadioButton x:Name="AttackRadio" Content="Attack" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="SupportRadio" Content="Support" HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top"/>
+                <Controls:NumericUpDown x:Name="AttackCountNumeric" Margin="0,140,0,0" TextAlignment="Left" HorizontalAlignment="Left" Width="115" HasDecimals="False" Minimum="1" Maximum="5" Value="1" Height="26" VerticalAlignment="Top"/>
+                <CheckBox x:Name="ExploitCheckBox" Content="Attack exploit [?]" HorizontalAlignment="Left" Margin="0,192,0,0" VerticalAlignment="Top" Width="113"/>
+                <ComboBox x:Name="FromComboBox" HorizontalAlignment="Left" Margin="0,21,0,0" VerticalAlignment="Top" Width="115" DropDownClosed="FromComboBox_DropDownClosed"/>
+                <ComboBox x:Name="CatapultTargetCombobBox" Text="Main" HorizontalAlignment="Left" Margin="0,236,0,0" VerticalAlignment="Top" Width="115">
+                    <ComboBoxItem Content="Main"/>
+                    <ComboBoxItem Content="Farm" />
+                    <ComboBoxItem Content="Storage" />
+                    <ComboBoxItem Content="Place" />
+                    <ComboBoxItem Content="Barracks" />
+                    <ComboBoxItem Content="Church" />
+                    <ComboBoxItem Content="Church First" />
+                    <ComboBoxItem Content="Smith" />
+                    <ComboBoxItem Content="Wood" />
+                    <ComboBoxItem Content="Stone" />
+                    <ComboBoxItem Content="Iron" />
+                    <ComboBoxItem Content="Market" />
+                    <ComboBoxItem Content="Stable" />
+                    <ComboBoxItem Content="Wall" />
+                    <ComboBoxItem Content="Garage" />
+                    <ComboBoxItem Content="Hide" />
+                    <ComboBoxItem Content="Snob" />
+                    <ComboBoxItem Content="Statue" />
+                    <ComboBoxItem Content="Watchtower" />
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Margin="0,267,0,0" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="In time" VerticalAlignment="Top"/>
+                <CheckBox x:Name="TimeCheckBox" Content="Attack in time" HorizontalAlignment="Left" Margin="0,288,0,0" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,311,0,0" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="Date" VerticalAlignment="Top"/>
+                <DatePicker x:Name="DatePickerHours" HorizontalAlignment="Left" Margin="0,332,0,0" VerticalAlignment="Top" Width="115"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,363,0,0" TextWrapping="Wrap" FontWeight="Bold" Foreground="#87909c" Text="hh:mm:ss.fff" VerticalAlignment="Top"/>
+                <TextBox x:Name="DateHours" HorizontalAlignment="Left" Height="23" Margin="0,384,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="115"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="SendAttack" Click="SendAttack_OnClick" Content="Send attack" HorizontalAlignment="Left" Margin="403,493,0,0" VerticalAlignment="Top" Width="125" Height="49"/>
+        <DataGrid x:Name="TargetDataGrid" HorizontalAlignment="Left" Margin="8,41,0,0" VerticalAlignment="Top"  Width="274" Height="501" IsReadOnly="True">
+
+        </DataGrid>
+        <TextBox x:Name="XSearch" HorizontalAlignment="Left" Height="23" Margin="161,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58" Controls:TextBoxHelper.Watermark="X..." TextChanged="XSearch_TextChanged"/>
+        <TextBox x:Name="YSearch" HorizontalAlignment="Left" Height="23" Margin="224,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58" Controls:TextBoxHelper.Watermark="Y..." TextChanged="YSearch_TextChanged"/>
+
+    </Grid>
+</Controls:MetroWindow>
